@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:islami/home/hadeth_tab.dart';
-import 'package:islami/home/quran_tab.dart';
-import 'package:islami/home/radio_tab.dart';
-import 'package:islami/home/seb7a_tab.dart';
 import 'package:islami/main.dart';
+
+import 'hadeth/hadeth_tab.dart';
+import 'quran/quran_tab.dart';
+import 'radio/radio_tab.dart';
+import 'seb7a/seb7a_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String ROUTE_NAME = 'Home Screen';
@@ -32,9 +33,9 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         Scaffold(
           appBar: AppBar(
-            title: Center(
-              child: Text(
-                'أسلامي',
+            title: Text(
+              'إسلامي',
+              style: TextStyle(
               ),
             ),
           ),
