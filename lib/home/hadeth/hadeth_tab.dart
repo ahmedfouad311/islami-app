@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/home/hadeth/hadethNameWidget.dart';
+import 'package:islami/providers/app_config_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../../main.dart';
 
@@ -12,6 +14,7 @@ class HadethTab extends StatefulWidget {
 class _HadethTabState extends State<HadethTab> {
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     if (allHadethItems.isEmpty) {
       loadHadethFile(); // la2ni 3ayz 22ra el 2a7ades 2wel ma23ml build le el screen de
     }
@@ -37,7 +40,11 @@ class _HadethTabState extends State<HadethTab> {
                 child: Divider(
                   height: 10,
                   thickness: 1,
-                  color: MyThemeData.PRIMARY_COLOR,
+                  color:
+                  provider.isDarkMode()
+                      ? MyThemeData.PRIMARY_COLOR_DARK_ACCENT
+                      :
+                  MyThemeData.PRIMARY_COLOR,
                 ),
               );
             },
