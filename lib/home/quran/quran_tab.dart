@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islami/home/quran/suraNameWidget.dart';
 import 'package:islami/main.dart';
+import 'package:islami/providers/app_config_provider.dart';
+import 'package:provider/provider.dart';
 
 class QuranTab extends StatelessWidget {
   List<String> names = [
@@ -130,6 +132,7 @@ class QuranTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     return Column(
       children: [
         Expanded(
@@ -163,7 +166,11 @@ class QuranTab extends StatelessWidget {
                 child: Divider(
                   height: 10,
                   thickness: 1,
-                  color: MyThemeData.PRIMARY_COLOR,
+                  color:
+                  provider.isDarkMode()
+                      ? MyThemeData.PRIMARY_COLOR_DARK_ACCENT
+                      :
+                  MyThemeData.PRIMARY_COLOR,
                 ),
               );
             },
